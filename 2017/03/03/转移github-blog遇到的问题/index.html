@@ -4,32 +4,71 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>排序算法 | 王亮的博客</title>
+    <title>转移github blog遇到的问题 | 王亮的博客</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="wangliang0209">
     
 
     
-    <meta name="description" content="排序  
+    <meta name="description" content="从github上把github_blog_source下载下来
 
-插入排序（时间复杂度 最坏情况 1 + 2 + … + n-1 = n ^2/ 2  即 O（n^2） 最好的情况  O（n） 已经有序，每个只比一次空间复杂度 O（1））
- 1234567891011121314for (int i = 1; i &amp;lt; a.length; i++) &amp;#123; 	if(a[i] &amp;lt; a[i-1]) &amp;#123;    		 int x =">
+
+
+按照Node  从官网下载即可
+
+
+
+安装hexo sudo npm install -g hexo
+
+
+
+初始化hexo hexo init  注意这样的话会该项目源代码中.git擦除掉这里我采用的方案是把项目备份到另一个地方，然后比对copy过来，这样就没问题了。
+
+
+
+安装git 部署器  npm install he">
 <meta property="og:type" content="article">
-<meta property="og:title" content="排序算法">
-<meta property="og:url" content="http://yoursite.com/2017/01/18/排序算法/index.html">
+<meta property="og:title" content="转移github blog遇到的问题">
+<meta property="og:url" content="http://yoursite.com/2017/03/03/转移github-blog遇到的问题/index.html">
 <meta property="og:site_name" content="王亮的博客">
-<meta property="og:description" content="排序  
+<meta property="og:description" content="从github上把github_blog_source下载下来
 
-插入排序（时间复杂度 最坏情况 1 + 2 + … + n-1 = n ^2/ 2  即 O（n^2） 最好的情况  O（n） 已经有序，每个只比一次空间复杂度 O（1））
- 1234567891011121314for (int i = 1; i &amp;lt; a.length; i++) &amp;#123; 	if(a[i] &amp;lt; a[i-1]) &amp;#123;    		 int x =">
-<meta property="og:updated_time" content="2017-03-03T03:36:40.000Z">
+
+
+按照Node  从官网下载即可
+
+
+
+安装hexo sudo npm install -g hexo
+
+
+
+初始化hexo hexo init  注意这样的话会该项目源代码中.git擦除掉这里我采用的方案是把项目备份到另一个地方，然后比对copy过来，这样就没问题了。
+
+
+
+安装git 部署器  npm install he">
+<meta property="og:updated_time" content="2017-03-03T04:05:17.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="排序算法">
-<meta name="twitter:description" content="排序  
+<meta name="twitter:title" content="转移github blog遇到的问题">
+<meta name="twitter:description" content="从github上把github_blog_source下载下来
 
-插入排序（时间复杂度 最坏情况 1 + 2 + … + n-1 = n ^2/ 2  即 O（n^2） 最好的情况  O（n） 已经有序，每个只比一次空间复杂度 O（1））
- 1234567891011121314for (int i = 1; i &amp;lt; a.length; i++) &amp;#123; 	if(a[i] &amp;lt; a[i-1]) &amp;#123;    		 int x =">
+
+
+按照Node  从官网下载即可
+
+
+
+安装hexo sudo npm install -g hexo
+
+
+
+初始化hexo hexo init  注意这样的话会该项目源代码中.git擦除掉这里我采用的方案是把项目备份到另一个地方，然后比对copy过来，这样就没问题了。
+
+
+
+安装git 部署器  npm install he">
 
     
     <link rel="alternative" href="/atom.xml" title="王亮的博客" type="application/atom+xml">
@@ -88,14 +127,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2017/01/18/排序算法/" title="排序算法" itemprop="url">排序算法</a>
+      <a href="/2017/03/03/转移github-blog遇到的问题/" title="转移github blog遇到的问题" itemprop="url">转移github blog遇到的问题</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="wangliang0209" target="_blank" itemprop="author">wangliang0209</a>
 		
   <p class="article-time">
-    <time datetime="2017-01-18T01:47:10.000Z" itemprop="datePublished"> 发表于 2017-01-18</time>
+    <time datetime="2017-03-03T03:59:17.000Z" itemprop="datePublished"> 发表于 2017-03-03</time>
     
   </p>
 </header>
@@ -108,25 +147,30 @@
 		
 		</div>
 		
-		<p>排序  </p>
-<ul>
-<li><p>插入排序<br>（时间复杂度 最坏情况 1 + 2 + … + n-1 = n ^2/ 2  即 <code>O（n^2）</code> 最好的情况  O（n） 已经有序，每个只比一次空间复杂度 <code>O（1）</code>）</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">for (int i = 1; i &lt; a.length; i++) &#123;</div><div class="line"> 	if(a[i] &lt; a[i-1]) &#123;</div><div class="line">    		 int x = a[i];</div><div class="line">    		 int j = i-1;</div><div class="line">    		 while (x &lt; a[j]) &#123;</div><div class="line">         		a[j+1] = a[j];</div><div class="line">        		 j--;</div><div class="line">        		 if(j &lt; 0)</div><div class="line">           			  break;</div><div class="line">    		 &#125;</div><div class="line">     	a[j+1] = x;</div><div class="line">	 &#125;</div><div class="line"> 	System.out.println(Arrays.toString(a));</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+		<ul>
+<li><ol>
+<li>从github上把github_blog_source下载下来</li>
+</ol>
 </li>
-</ul>
-<p>结果演示<br>      [5, 10, 7, 8, 6]<br>      [5, 7, 10, 8, 6]<br>      [5, 7, 8, 10, 6]<br>      [5, 6, 7, 8, 10]</p>
-<ul>
-<li><p>选择排序<br>（时间复杂度 最好最坏都是<code>O（n^2）</code>空间复杂度 <code>O（1）</code>）</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">private static void selectSort(int[] a) &#123;</div><div class="line">  int key;</div><div class="line">  for (int i = 0; i &lt; a.length; i++) &#123;</div><div class="line">      key = i;</div><div class="line">      for(int j = i + 1; j &lt; a.length; j++) &#123;</div><div class="line">          if(a[key] &gt; a[j]) &#123;</div><div class="line">              key = j;</div><div class="line">          &#125;</div><div class="line">      &#125;</div><div class="line"></div><div class="line">      if(key != i) &#123;</div><div class="line">          swap(a, key, i);</div><div class="line">      &#125;</div><div class="line"></div><div class="line">      System.out.println(Arrays.toString(a));</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<li><ol>
+<li>按照Node  从<a href="https://nodejs.org/en/" target="_blank" rel="external">官网</a>下载即可</li>
+</ol>
 </li>
-</ul>
-<p>结果演示<br>      [5, 8, 7, 6, 10]<br>      [5, 6, 7, 8, 10]<br>      [5, 6, 7, 8, 10]<br>      [5, 6, 7, 8, 10]<br>      [5, 6, 7, 8, 10]</p>
-<ul>
-<li><p>冒泡排序<br>（时间复杂度 最坏情况 1 + 2 + … + n-1 = n ^2/ 2  即 <code>O（n^2）</code><br>   空间复杂度 <code>O（1）</code>）</p>
-   <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"> private static void bubbleSort(int[] a) &#123;</div><div class="line">   for (int i = 0; i &lt; a.length - 1; i++) &#123;</div><div class="line">    for (int j = i; j &lt; a.length ; j++) &#123;</div><div class="line">        if(a[i] &gt; a[j]) &#123;</div><div class="line">            swap(a, i, j);</div><div class="line">            System.out.println(Arrays.toString(a));</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    System.out.println(&quot;----&quot;);</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<li><ol>
+<li>安装hexo sudo npm install -g hexo</li>
+</ol>
 </li>
-<li><p>快速排序<br>（时间复杂度 最坏情况 1 + 2 + … + n-1 = n ^2/ 2  即 <code>O（n^2）</code>最好 <code>O(nlgn)</code><br>   空间复杂度<code>O(log2n)~O(n)</code>）</p>
-   <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"> private static void quickSort(int[] a, int left, int right) &#123;</div><div class="line">    if(left &lt; right) &#123;</div><div class="line">        printArr(a, left, right);</div><div class="line">        int key = a[left];</div><div class="line">        int low = left;</div><div class="line">        int high = right;</div><div class="line">        while (low &lt; high) &#123;</div><div class="line">            while (low &lt; high &amp;&amp; a[high] &gt;= key) &#123; //找到比key小的数</div><div class="line">                high --;</div><div class="line">            &#125;</div><div class="line">            a[low] = a[high]; //放到low位置</div><div class="line"></div><div class="line">            while (low &lt; high &amp;&amp; a[low]  &lt;= key) &#123; // 找到比key大的数</div><div class="line">                low ++;</div><div class="line">            &#125;</div><div class="line">            a[high] = a[low];  // 放到high位置</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        a[low] = key; //key</div><div class="line"></div><div class="line">        System.out.println(Arrays.toString(a));</div><div class="line"></div><div class="line">        // System.out.println(&quot;left:&quot; + left + &quot;, low - 1:&quot; + (low - 1));</div><div class="line"></div><div class="line">        quickSort(a, left, low - 1);</div><div class="line">        // System.out.println(&quot;low + 1:&quot; + (low + 1) + &quot;, right:&quot; + right);</div><div class="line">        quickSort(a, low + 1, right);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<li><ol>
+<li>初始化hexo hexo init  注意这样的话会该项目源代码中.git擦除掉<br>这里我采用的方案是把项目备份到另一个地方，然后比对copy过来，这样就没问题了。</li>
+</ol>
+</li>
+<li><ol>
+<li>安装git 部署器  npm install hexo-deployer-git –save</li>
+</ol>
+</li>
+<li><ol>
+<li>到此应该就没什么问题了。check 一下</li>
+</ol>
 </li>
 </ul>
   
@@ -137,7 +181,7 @@
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/算法/">算法</a>
+  <span></span> <a href="/tags/github/">github</a><a href="/tags/blog/">blog</a>
   </div>
 
 </div>
@@ -146,7 +190,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://yoursite.com/2017/01/18/排序算法/" data-title="排序算法 | 王亮的博客" data-tsina="null" class="share clearfix">
+	  <div data-url="http://yoursite.com/2017/03/03/转移github-blog遇到的问题/" data-title="转移github blog遇到的问题 | 王亮的博客" data-tsina="null" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -159,19 +203,11 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2017/01/18/Android-Studio类中实现Serializable自动生成serialVersionUID/" title="Android Studio类中实现Serializable自动生成serialVersionUID">
-  <strong>上一篇：</strong><br/>
-  <span>
-  Android Studio类中实现Serializable自动生成serialVersionUID</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2017/01/18/Maven-增加Mybatis-generator-插件/"  title="Maven 增加Mybatis generator 插件">
+<a href="/2017/03/03/hello-world/"  title="Hello World">
  <strong>下一篇：</strong><br/> 
- <span>Maven 增加Mybatis generator 插件
+ <span>Hello World
 </span>
 </a>
 </div>
