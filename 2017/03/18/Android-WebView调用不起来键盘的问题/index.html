@@ -4,23 +4,38 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>Maven 增加Mybatis generator 插件 | 王亮的博客</title>
+    <title>Android WebView调用不起来键盘的问题 | 王亮的博客</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="wangliang0209">
     
 
     
-    <meta name="description" content="在pmd.xml中增加代码12345678910111213141516171819202122232425&amp;lt;plugin&amp;gt;      &amp;lt;groupId&amp;gt;org.mybatis.generator&amp;lt;/groupId&amp;gt;      &amp;lt;artifactId&amp;gt;mybatis-generator-maven-plugin&amp;lt;/artifactId&amp;gt;">
+    <meta name="description" content="今天遇到webview中input标签点击弹不出键盘，找了半天没有答案。终于在一个不起眼的地方发现了问题。
+首先试验过的方法
+
+requestFoucs();无效。requestFoucsFromTouch();无效。webview.setTouchListener；无效。
+
+问题所在继承WebView时，注意构造方法：123456789101112public CommonWebView(Con">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Maven 增加Mybatis generator 插件">
-<meta property="og:url" content="http://yoursite.com/2017/01/18/Maven-增加Mybatis-generator-插件/index.html">
+<meta property="og:title" content="Android WebView调用不起来键盘的问题">
+<meta property="og:url" content="http://yoursite.com/2017/03/18/Android-WebView调用不起来键盘的问题/index.html">
 <meta property="og:site_name" content="王亮的博客">
-<meta property="og:description" content="在pmd.xml中增加代码12345678910111213141516171819202122232425&amp;lt;plugin&amp;gt;      &amp;lt;groupId&amp;gt;org.mybatis.generator&amp;lt;/groupId&amp;gt;      &amp;lt;artifactId&amp;gt;mybatis-generator-maven-plugin&amp;lt;/artifactId&amp;gt;">
-<meta property="og:updated_time" content="2017-03-03T03:36:40.000Z">
+<meta property="og:description" content="今天遇到webview中input标签点击弹不出键盘，找了半天没有答案。终于在一个不起眼的地方发现了问题。
+首先试验过的方法
+
+requestFoucs();无效。requestFoucsFromTouch();无效。webview.setTouchListener；无效。
+
+问题所在继承WebView时，注意构造方法：123456789101112public CommonWebView(Con">
+<meta property="og:updated_time" content="2017-03-18T05:56:15.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Maven 增加Mybatis generator 插件">
-<meta name="twitter:description" content="在pmd.xml中增加代码12345678910111213141516171819202122232425&amp;lt;plugin&amp;gt;      &amp;lt;groupId&amp;gt;org.mybatis.generator&amp;lt;/groupId&amp;gt;      &amp;lt;artifactId&amp;gt;mybatis-generator-maven-plugin&amp;lt;/artifactId&amp;gt;">
+<meta name="twitter:title" content="Android WebView调用不起来键盘的问题">
+<meta name="twitter:description" content="今天遇到webview中input标签点击弹不出键盘，找了半天没有答案。终于在一个不起眼的地方发现了问题。
+首先试验过的方法
+
+requestFoucs();无效。requestFoucsFromTouch();无效。webview.setTouchListener；无效。
+
+问题所在继承WebView时，注意构造方法：123456789101112public CommonWebView(Con">
 
     
     <link rel="alternative" href="/atom.xml" title="王亮的博客" type="application/atom+xml">
@@ -79,14 +94,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2017/01/18/Maven-增加Mybatis-generator-插件/" title="Maven 增加Mybatis generator 插件" itemprop="url">Maven 增加Mybatis generator 插件</a>
+      <a href="/2017/03/18/Android-WebView调用不起来键盘的问题/" title="Android WebView调用不起来键盘的问题" itemprop="url">Android WebView调用不起来键盘的问题</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="wangliang0209" target="_blank" itemprop="author">wangliang0209</a>
 		
   <p class="article-time">
-    <time datetime="2017-01-18T01:44:49.000Z" itemprop="datePublished"> 发表于 2017-01-18</time>
+    <time datetime="2017-03-18T05:50:09.000Z" itemprop="datePublished"> 发表于 2017-03-18</time>
     
   </p>
 </header>
@@ -95,33 +110,22 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-5"><a class="toc-link" href="#在pmd-xml中增加代码"><span class="toc-number">1.</span> <span class="toc-text">在pmd.xml中增加代码</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#增加generatorConfig-xml文件"><span class="toc-number">2.</span> <span class="toc-text">增加generatorConfig.xml文件</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#导入后即可-这里我遇到一直卡死到downloading-关掉重启就好了"><span class="toc-number">3.</span> <span class="toc-text">导入后即可 这里我遇到一直卡死到downloading 关掉重启就好了</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-5"><a class="toc-link" href="#问题所在"><span class="toc-number">1.</span> <span class="toc-text">问题所在</span></a></li></ol>
 		
 		</div>
 		
-		<ul>
-<li><h5 id="在pmd-xml中增加代码"><a href="#在pmd-xml中增加代码" class="headerlink" title="在pmd.xml中增加代码"></a>在pmd.xml中增加代码</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">&lt;plugin&gt;</div><div class="line">      &lt;groupId&gt;org.mybatis.generator&lt;/groupId&gt;</div><div class="line">      &lt;artifactId&gt;mybatis-generator-maven-plugin&lt;/artifactId&gt;</div><div class="line">      &lt;version&gt;1.3.2&lt;/version&gt;</div><div class="line">      &lt;configuration&gt;</div><div class="line">        &lt;configurationFile&gt;src/main/resources/mybatis-generator/generatorConfig.xml&lt;/configurationFile&gt;</div><div class="line">        &lt;verbose&gt;true&lt;/verbose&gt;</div><div class="line">        &lt;overwrite&gt;true&lt;/overwrite&gt;</div><div class="line">      &lt;/configuration&gt;</div><div class="line">      &lt;executions&gt;</div><div class="line">        &lt;execution&gt;</div><div class="line">          &lt;id&gt;Generate MyBatis Artifacts&lt;/id&gt;</div><div class="line">          &lt;goals&gt;</div><div class="line">            &lt;goal&gt;generate&lt;/goal&gt;</div><div class="line">          &lt;/goals&gt;</div><div class="line">        &lt;/execution&gt;</div><div class="line">      &lt;/executions&gt;</div><div class="line">      &lt;dependencies&gt;</div><div class="line">        &lt;dependency&gt;</div><div class="line">          &lt;groupId&gt;org.mybatis.generator&lt;/groupId&gt;</div><div class="line">          &lt;artifactId&gt;mybatis-generator-core&lt;/artifactId&gt;</div><div class="line">          &lt;version&gt;1.3.2&lt;/version&gt;</div><div class="line">        &lt;/dependency&gt;</div><div class="line">      &lt;/dependencies&gt;</div><div class="line">    &lt;/plugin&gt;</div></pre></td></tr></table></figure>
-</li>
-<li><h5 id="增加generatorConfig-xml文件"><a href="#增加generatorConfig-xml文件" class="headerlink" title="增加generatorConfig.xml文件"></a>增加generatorConfig.xml文件</h5><p>在上面对应目录增加该文件，内容如下</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</div><div class="line">&lt;!DOCTYPE generatorConfiguration</div><div class="line">      PUBLIC &quot;-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN&quot;</div><div class="line">      &quot;http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd&quot;&gt;</div><div class="line">&lt;generatorConfiguration&gt;</div><div class="line">  &lt;classPathEntry location=&quot;/home/wangliang/tool/generator/mysql-connector-java-5.1.40.jar&quot; /&gt;</div><div class="line">  &lt;context id=&quot;apimanager&quot; targetRuntime=&quot;MyBatis3&quot;&gt;</div><div class="line">      &lt;commentGenerator&gt;</div><div class="line">          &lt;property name=&quot;suppressAllComments&quot; value=&quot;true&quot;/&gt;</div><div class="line">          &lt;property name=&quot;prefix&quot; value=&quot;com.wl.api&quot;/&gt;</div><div class="line">      &lt;/commentGenerator&gt;</div><div class="line">      &lt;jdbcConnection driverClass=&quot;com.mysql.jdbc.Driver&quot;</div><div class="line">                      connectionURL=&quot;jdbc:mysql://localhost:3306/db_tech&quot; userId=&quot;root&quot;</div><div class="line">                      password=&quot;root&quot;/&gt;</div><div class="line">      &lt;javaModelGenerator targetPackage=&quot;com.wl.api.model&quot;</div><div class="line">                          targetProject=&quot;/home/wangliang/workspace1/ApiManager/src/main/java&quot;/&gt;</div><div class="line">      &lt;sqlMapGenerator targetPackage=&quot;com.wl.api.mapping&quot;</div><div class="line">                       targetProject=&quot;/home/wangliang/workspace1/ApiManager/src/main/java/&quot;/&gt;</div><div class="line">      &lt;javaClientGenerator targetPackage=&quot;com.wl.api.dao&quot;</div><div class="line">                           targetProject=&quot;/home/wangliang/workspace1/ApiManager/src/main/java&quot;</div><div class="line">                           type=&quot;XMLMAPPER&quot;/&gt;</div><div class="line">      &lt;table schema=&quot;taivexpay&quot; tableName=&quot;tb_account&quot;</div><div class="line">             domainObjectName=&quot;Account&quot;</div><div class="line">                     enableCountByExample=&quot;false&quot; enableUpdateByExample=&quot;false&quot;</div><div class="line">                     enableDeleteByExample=&quot;false&quot; enableSelectByExample=&quot;false&quot;</div><div class="line">                     selectByExampleQueryId=&quot;false&quot;&gt;&lt;/table&gt;</div><div class="line">  &lt;/context&gt;</div><div class="line">&lt;/generatorConfiguration&gt;</div></pre></td></tr></table></figure>
-</li>
-<li><h5 id="导入后即可-这里我遇到一直卡死到downloading-关掉重启就好了"><a href="#导入后即可-这里我遇到一直卡死到downloading-关掉重启就好了" class="headerlink" title="导入后即可 这里我遇到一直卡死到downloading 关掉重启就好了"></a>导入后即可 <code>这里我遇到一直卡死到downloading 关掉重启就好了</code></h5></li>
-<li>然后命令行执行<blockquote>
-<p>mybatis-generator:generate</p>
+		<p>今天遇到webview中input标签点击弹不出键盘，找了半天没有答案。终于在一个不起眼的地方发现了问题。</p>
+<p>首先试验过的方法</p>
+<blockquote>
+<p>requestFoucs();无效。<br>requestFoucsFromTouch();无效。<br>webview.setTouchListener；无效。</p>
 </blockquote>
-</li>
-<li>如果成功就会自动生成了</li>
-</ul>
+<h5 id="问题所在"><a href="#问题所在" class="headerlink" title="问题所在"></a>问题所在</h5><p>继承WebView时，注意构造方法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">public CommonWebView(Context context) &#123;</div><div class="line">	super(context);</div><div class="line">	init();</div><div class="line">&#125;</div><div class="line">public CommonWebView(Context context, AttributeSet attrs) &#123;</div><div class="line">	super(context, attrs);</div><div class="line">	init();</div><div class="line">&#125;</div><div class="line">public CommonWebView(Context context, AttributeSet attrs, int defStyleAttr) &#123;</div><div class="line">	super(context, attrs, defStyleAttr);</div><div class="line">	init();</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>错误在于 defStyleAttr不能传0，如下错误写法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">public CommonWebView(Context context) &#123;  </div><div class="line">	this(context,null,0);</div><div class="line">&#125;</div><div class="line">public CommonWebView(Context context, AttributeSet attrs) &#123;</div><div class="line">	this(context, attrs,0);</div><div class="line">&#125;</div><div class="line">public CommonWebView(Context context, AttributeSet attrs, int defStyleAttr) &#123;</div><div class="line">	super(context, attrs, defStyleAttr);</div><div class="line">	init();</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
   
 	</div>
 		<footer class="article-footer clearfix">
 <div class="article-catetags">
 
-
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/maven-mybatis/">maven mybatis</a>
-  </div>
 
 </div>
 
@@ -129,7 +133,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://yoursite.com/2017/01/18/Maven-增加Mybatis-generator-插件/" data-title="Maven 增加Mybatis generator 插件 | 王亮的博客" data-tsina="null" class="share clearfix">
+	  <div data-url="http://yoursite.com/2017/03/18/Android-WebView调用不起来键盘的问题/" data-title="Android WebView调用不起来键盘的问题 | 王亮的博客" data-tsina="null" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -142,19 +146,11 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2017/01/18/排序算法/" title="排序算法">
-  <strong>上一篇：</strong><br/>
-  <span>
-  排序算法</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2017/01/18/配置新服务器-ubuntu/"  title="配置新服务器 ubuntu">
+<a href="/2017/03/03/转移github-blog遇到的问题/"  title="转移github blog遇到的问题">
  <strong>下一篇：</strong><br/> 
- <span>配置新服务器 ubuntu
+ <span>转移github blog遇到的问题
 </span>
 </a>
 </div>
@@ -169,7 +165,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- <ol class="toc"><li class="toc-item toc-level-5"><a class="toc-link" href="#在pmd-xml中增加代码"><span class="toc-number">1.</span> <span class="toc-text">在pmd.xml中增加代码</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#增加generatorConfig-xml文件"><span class="toc-number">2.</span> <span class="toc-text">增加generatorConfig.xml文件</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#导入后即可-这里我遇到一直卡死到downloading-关掉重启就好了"><span class="toc-number">3.</span> <span class="toc-text">导入后即可 这里我遇到一直卡死到downloading 关掉重启就好了</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-5"><a class="toc-link" href="#问题所在"><span class="toc-number">1.</span> <span class="toc-text">问题所在</span></a></li></ol>
  
   </div>
 

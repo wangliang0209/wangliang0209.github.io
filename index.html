@@ -80,6 +80,62 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
+      <a href="/2017/03/18/Android-WebView调用不起来键盘的问题/" title="Android WebView调用不起来键盘的问题" itemprop="url">Android WebView调用不起来键盘的问题</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="wangliang0209" target="_blank" itemprop="author">wangliang0209</a>
+		
+  <p class="article-time">
+    <time datetime="2017-03-18T05:50:09.000Z" itemprop="datePublished"> 发表于 2017-03-18</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <p>今天遇到webview中input标签点击弹不出键盘，找了半天没有答案。终于在一个不起眼的地方发现了问题。</p>
+<p>首先试验过的方法</p>
+<blockquote>
+<p>requestFoucs();无效。<br>requestFoucsFromTouch();无效。<br>webview.setTouchListener；无效。</p>
+</blockquote>
+<h5 id="问题所在"><a href="#问题所在" class="headerlink" title="问题所在"></a>问题所在</h5><p>继承WebView时，注意构造方法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">public CommonWebView(Context context) &#123;</div><div class="line">	super(context);</div><div class="line">	init();</div><div class="line">&#125;</div><div class="line">public CommonWebView(Context context, AttributeSet attrs) &#123;</div><div class="line">	super(context, attrs);</div><div class="line">	init();</div><div class="line">&#125;</div><div class="line">public CommonWebView(Context context, AttributeSet attrs, int defStyleAttr) &#123;</div><div class="line">	super(context, attrs, defStyleAttr);</div><div class="line">	init();</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>错误在于 defStyleAttr不能传0，如下错误写法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">public CommonWebView(Context context) &#123;  </div><div class="line">	this(context,null,0);</div><div class="line">&#125;</div><div class="line">public CommonWebView(Context context, AttributeSet attrs) &#123;</div><div class="line">	this(context, attrs,0);</div><div class="line">&#125;</div><div class="line">public CommonWebView(Context context, AttributeSet attrs, int defStyleAttr) &#123;</div><div class="line">	super(context, attrs, defStyleAttr);</div><div class="line">	init();</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
       <a href="/2017/03/03/转移github-blog遇到的问题/" title="转移github blog遇到的问题" itemprop="url">转移github blog遇到的问题</a>
   </h1>
   <p class="article-author">By
@@ -824,75 +880,9 @@
 
 
 
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2017/01/18/android-studio-无线-调试手机/" title="android studio 无线 调试手机" itemprop="url">android studio 无线 调试手机</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="wangliang0209" target="_blank" itemprop="author">wangliang0209</a>
-		
-  <p class="article-time">
-    <time datetime="2017-01-18T01:35:18.000Z" itemprop="datePublished"> 发表于 2017-01-18</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <ol>
-<li><p>android studio plugins 搜索安装 ADB WIFI</p>
-</li>
-<li><p>安装后重启studio</p>
-</li>
-<li><p>android studio  &gt;&gt; Tools &gt;&gt; Android &gt;&gt; ADB WIFI &gt;&gt; ADB Restart</p>
-</li>
-<li><p>android studio  &gt;&gt; Tools &gt;&gt; Android &gt;&gt; ADB WIFI &gt;&gt; ADB USB to WIFI</p>
-</li>
-<li><p>拔掉 usb 线  adb devices 如果存在机器就可以调试了，over！！！！ </p>
-</li>
-</ol>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/android/">android</a>
-  </div>
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
 
   <nav id="page-nav" class="clearfix">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next<span></span></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next<span></span></a>
   </nav>
 
 </div>
@@ -910,15 +900,11 @@
 		<ul class="clearfix">
 		
 			
-				<li><a href="/tags/Java/" title="Java">Java<sup>4</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/android/" title="android">android<sup>4</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/算法/" title="算法">算法<sup>2</sup></a></li>
+				<li><a href="/tags/Java/" title="Java">Java<sup>4</sup></a></li>
 			
 		
 			
@@ -926,31 +912,7 @@
 			
 		
 			
-				<li><a href="/tags/git/" title="git">git<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/maven-mybatis/" title="maven mybatis">maven mybatis<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Intellij/" title="Intellij">Intellij<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Python/" title="Python">Python<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/自动化打包/" title="自动化打包">自动化打包<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/blog/" title="blog">blog<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/server/" title="server">server<sup>1</sup></a></li>
+				<li><a href="/tags/算法/" title="算法">算法<sup>2</sup></a></li>
 			
 		
 			
@@ -958,7 +920,27 @@
 			
 		
 			
-				<li><a href="/tags/ubuntu/" title="ubuntu">ubuntu<sup>1</sup></a></li>
+				<li><a href="/tags/Python/" title="Python">Python<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Intellij/" title="Intellij">Intellij<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/maven-mybatis/" title="maven mybatis">maven mybatis<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/自动化打包/" title="自动化打包">自动化打包<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/git/" title="git">git<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/server/" title="server">server<sup>1</sup></a></li>
 			
 		
 			
@@ -967,6 +949,14 @@
 		
 			
 				<li><a href="/tags/andoid/" title="andoid">andoid<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/ubuntu/" title="ubuntu">ubuntu<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/blog/" title="blog">blog<sup>1</sup></a></li>
 			
 		
 		</ul>
