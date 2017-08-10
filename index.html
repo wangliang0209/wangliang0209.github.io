@@ -80,6 +80,83 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
+      <a href="/2017/08/10/React-Native-使用（一）/" title="React Native 使用（一）" itemprop="url">React Native 使用（一）</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="wangliang0209" target="_blank" itemprop="author">wangliang0209</a>
+		
+  <p class="article-time">
+    <time datetime="2017-08-10T07:06:17.000Z" itemprop="datePublished"> 发表于 2017-08-10</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <p>首先说下React Native是干嘛用的:<br>1.HTML5、Android、IOS多端代码复用；<br>2.实时热部署</p>
+<p><strong>Mac下环境配置</strong><br>参考官网<a href="http://reactnative.cn/docs/0.47/getting-started.html" target="_blank" rel="external">文档</a>  可参考其一步步安装即可</p>
+<p>必需的软件<br>1 <code>Homebrew</code>  Mac系统的包管理器，用于安装NodeJS和一些其他必需的工具软件<br>2 <code>Node</code> </p>
+<pre><code>&gt; brew install node  
+</code></pre><p>3     <code>Yarn、React Native的命令行工具（react-native-cli)</code>  Yarn是Facebook提供的替代npm的工具，可以加速node模块的下载。React Native的命令行工具用于执行创建、初始化、更新项目、运行打包服务（packager）等任务。  </p>
+<blockquote>
+<p>npm install -g yarn react-native-cli  </p>
+</blockquote>
+<p>安装完yarn后同理也要设置镜像源：      </p>
+<blockquote>
+<p>yarn config set registry <a href="https://registry.npm.taobao.org" target="_blank" rel="external">https://registry.npm.taobao.org</a> –global<br>yarn config set disturl <a href="https://npm.taobao.org/dist" target="_blank" rel="external">https://npm.taobao.org/dist</a> –global     </p>
+</blockquote>
+<p>4 <code>Android Studio</code><br>  Android 开发必备 这里就不多说了<br>  最好配置下ANDROID_HOME PATH 等</p>
+<p>5 <code>Nuclide</code>  </p>
+<h2 id="测试安装"><a href="#测试安装" class="headerlink" title="测试安装"></a><strong>测试安装</strong></h2><blockquote>
+<p>react-native init AwesomeProject<br>cd AwesomeProject<br>react-native run-android  </p>
+</blockquote>
+<p>注意可以用Android Studio 打开android目录的项目<br>可以copy <code>local.properties</code> 到android目录下 这样就不用配置sdk.dir了</p>
+<blockquote>
+<p>react-native start  //启动react debug server</p>
+</blockquote>
+<p>##Android 真机调试##</p>
+<p>示例 App 直接部署到真机，红色界面报错，无法连接到 Debug Server。</p>
+<p>如果是 5.0 或者以上机型，可通过 adb 反向代理端口，将 Mac 端口反向代理到测试机上。</p>
+<blockquote>
+<p>adb reverse tcp:8081 tcp:8081  //这样</p>
+</blockquote>
+<p>至此，环境就算搭建起来了，运行hello world就出来了.   </p>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
       <a href="/2017/03/18/Android-WebView调用不起来键盘的问题/" title="Android WebView调用不起来键盘的问题" itemprop="url">Android WebView调用不起来键盘的问题</a>
   </h1>
   <p class="article-author">By
@@ -684,63 +761,6 @@
 
 
 
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2017/01/18/配置新服务器-ubuntu/" title="配置新服务器 ubuntu" itemprop="url">配置新服务器 ubuntu</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="wangliang0209" target="_blank" itemprop="author">wangliang0209</a>
-		
-  <p class="article-time">
-    <time datetime="2017-01-18T01:41:06.000Z" itemprop="datePublished"> 发表于 2017-01-18</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <ol>
-<li><p>挂载数据盘<br>参照 <a href="http://jingyan.baidu.com/article/90808022d2e9a3fd91c80fe9.html">这里</a></p>
-        
-        
-        <p class="article-more-link">
-          
-            <a href="/2017/01/18/配置新服务器-ubuntu/#more">Read More</a>
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/ubuntu/">ubuntu</a>
-  </div>
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
 
   <nav id="page-nav" class="clearfix">
     <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next<span></span></a>
@@ -781,7 +801,7 @@
 			
 		
 			
-				<li><a href="/tags/maven-mybatis/" title="maven mybatis">maven mybatis<sup>1</sup></a></li>
+				<li><a href="/tags/Python/" title="Python">Python<sup>1</sup></a></li>
 			
 		
 			
@@ -789,7 +809,7 @@
 			
 		
 			
-				<li><a href="/tags/Python/" title="Python">Python<sup>1</sup></a></li>
+				<li><a href="/tags/maven-mybatis/" title="maven mybatis">maven mybatis<sup>1</sup></a></li>
 			
 		
 			
@@ -801,15 +821,15 @@
 			
 		
 			
+				<li><a href="/tags/设计模式/" title="设计模式">设计模式<sup>1</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/推送/" title="推送">推送<sup>1</sup></a></li>
 			
 		
 			
 				<li><a href="/tags/andoid/" title="andoid">andoid<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/设计模式/" title="设计模式">设计模式<sup>1</sup></a></li>
 			
 		
 			

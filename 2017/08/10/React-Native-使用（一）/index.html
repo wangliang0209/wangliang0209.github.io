@@ -4,59 +4,35 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>github第一次在本地配置 | 王亮的博客</title>
+    <title>React Native 使用（一） | 王亮的博客</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="wangliang0209">
     
 
     
-    <meta name="description" content="cd ~/.ssh
-
-看是否存在 没有就创建一个
-
-$ssh-keygen -t rsa -C  xxx@163.com
-
-出现
-
-Generating public/private rsa key pair.Enter file in which to save the key (/Users/wangliang/.ssh/id_rsa):
-
-输入id_rsa, 出现
-
-Enter passp">
+    <meta name="description" content="首先说下React Native是干嘛用的:1.HTML5、Android、IOS多端代码复用；2.实时热部署
+Mac下环境配置参考官网文档  可参考其一步步安装即可
+必需的软件1 Homebrew  Mac系统的包管理器，用于安装NodeJS和一些其他必需的工具软件2 Node 
+&amp;gt; brew install node  
+3     Yarn、React Native的命令行工具（rea">
 <meta property="og:type" content="article">
-<meta property="og:title" content="github第一次在本地配置">
-<meta property="og:url" content="http://yoursite.com/2017/01/17/github第一次在本地配置/index.html">
+<meta property="og:title" content="React Native 使用（一）">
+<meta property="og:url" content="http://yoursite.com/2017/08/10/React-Native-使用（一）/index.html">
 <meta property="og:site_name" content="王亮的博客">
-<meta property="og:description" content="cd ~/.ssh
-
-看是否存在 没有就创建一个
-
-$ssh-keygen -t rsa -C  xxx@163.com
-
-出现
-
-Generating public/private rsa key pair.Enter file in which to save the key (/Users/wangliang/.ssh/id_rsa):
-
-输入id_rsa, 出现
-
-Enter passp">
-<meta property="og:updated_time" content="2017-03-03T03:36:40.000Z">
+<meta property="og:description" content="首先说下React Native是干嘛用的:1.HTML5、Android、IOS多端代码复用；2.实时热部署
+Mac下环境配置参考官网文档  可参考其一步步安装即可
+必需的软件1 Homebrew  Mac系统的包管理器，用于安装NodeJS和一些其他必需的工具软件2 Node 
+&amp;gt; brew install node  
+3     Yarn、React Native的命令行工具（rea">
+<meta property="og:updated_time" content="2017-08-10T07:52:34.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="github第一次在本地配置">
-<meta name="twitter:description" content="cd ~/.ssh
-
-看是否存在 没有就创建一个
-
-$ssh-keygen -t rsa -C  xxx@163.com
-
-出现
-
-Generating public/private rsa key pair.Enter file in which to save the key (/Users/wangliang/.ssh/id_rsa):
-
-输入id_rsa, 出现
-
-Enter passp">
+<meta name="twitter:title" content="React Native 使用（一）">
+<meta name="twitter:description" content="首先说下React Native是干嘛用的:1.HTML5、Android、IOS多端代码复用；2.实时热部署
+Mac下环境配置参考官网文档  可参考其一步步安装即可
+必需的软件1 Homebrew  Mac系统的包管理器，用于安装NodeJS和一些其他必需的工具软件2 Node 
+&amp;gt; brew install node  
+3     Yarn、React Native的命令行工具（rea">
 
     
     <link rel="alternative" href="/atom.xml" title="王亮的博客" type="application/atom+xml">
@@ -115,14 +91,14 @@ Enter passp">
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2017/01/17/github第一次在本地配置/" title="github第一次在本地配置" itemprop="url">github第一次在本地配置</a>
+      <a href="/2017/08/10/React-Native-使用（一）/" title="React Native 使用（一）" itemprop="url">React Native 使用（一）</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="wangliang0209" target="_blank" itemprop="author">wangliang0209</a>
 		
   <p class="article-time">
-    <time datetime="2017-01-17T09:14:11.000Z" itemprop="datePublished"> 发表于 2017-01-17</time>
+    <time datetime="2017-08-10T07:06:17.000Z" itemprop="datePublished"> 发表于 2017-08-10</time>
     
   </p>
 </header>
@@ -131,45 +107,43 @@ Enter passp">
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#测试安装"><span class="toc-number">1.</span> <span class="toc-text">测试安装</span></a></li></ol>
 		
 		</div>
 		
-		<blockquote>
-<p>cd ~/.ssh</p>
-</blockquote>
-<p>看是否存在 没有就创建一个</p>
+		<p>首先说下React Native是干嘛用的:<br>1.HTML5、Android、IOS多端代码复用；<br>2.实时热部署</p>
+<p><strong>Mac下环境配置</strong><br>参考官网<a href="http://reactnative.cn/docs/0.47/getting-started.html" target="_blank" rel="external">文档</a>  可参考其一步步安装即可</p>
+<p>必需的软件<br>1 <code>Homebrew</code>  Mac系统的包管理器，用于安装NodeJS和一些其他必需的工具软件<br>2 <code>Node</code> </p>
+<pre><code>&gt; brew install node  
+</code></pre><p>3     <code>Yarn、React Native的命令行工具（react-native-cli)</code>  Yarn是Facebook提供的替代npm的工具，可以加速node模块的下载。React Native的命令行工具用于执行创建、初始化、更新项目、运行打包服务（packager）等任务。  </p>
 <blockquote>
-<p>$ssh-keygen -t rsa -C  xxx@163.com</p>
+<p>npm install -g yarn react-native-cli  </p>
 </blockquote>
-<p>出现</p>
+<p>安装完yarn后同理也要设置镜像源：      </p>
 <blockquote>
-<p>Generating public/private rsa key pair.<br>Enter file in which to save the key (/Users/wangliang/.ssh/id_rsa):</p>
+<p>yarn config set registry <a href="https://registry.npm.taobao.org" target="_blank" rel="external">https://registry.npm.taobao.org</a> –global<br>yarn config set disturl <a href="https://npm.taobao.org/dist" target="_blank" rel="external">https://npm.taobao.org/dist</a> –global     </p>
 </blockquote>
-<p>输入id_rsa, 出现</p>
+<p>4 <code>Android Studio</code><br>  Android 开发必备 这里就不多说了<br>  最好配置下ANDROID_HOME PATH 等</p>
+<p>5 <code>Nuclide</code>  </p>
+<h2 id="测试安装"><a href="#测试安装" class="headerlink" title="测试安装"></a><strong>测试安装</strong></h2><blockquote>
+<p>react-native init AwesomeProject<br>cd AwesomeProject<br>react-native run-android  </p>
+</blockquote>
+<p>注意可以用Android Studio 打开android目录的项目<br>可以copy <code>local.properties</code> 到android目录下 这样就不用配置sdk.dir了</p>
 <blockquote>
-<p>Enter passphrase (empty for no passphrase):自己的密码</p>
+<p>react-native start  //启动react debug server</p>
 </blockquote>
-<p>出现</p>
+<p>##Android 真机调试##</p>
+<p>示例 App 直接部署到真机，红色界面报错，无法连接到 Debug Server。</p>
+<p>如果是 5.0 或者以上机型，可通过 adb 反向代理端口，将 Mac 端口反向代理到测试机上。</p>
 <blockquote>
-<p>Enter same passphrase again: 再次输入<br>$ ls<br>id_rsa        id_rsa.pub     一个公钥 一个私钥</p>
-<p>$more id_rsa.pub<br>复制内容到github-&gt;头像-&gt;setting -&gt; ssh key -&gt;新增一个就行（title随便写）</p>
-<p>$ ssh -T git@github.com<br>  出现 Hi wangliang0209! You’ve successfully authenticated, but GitHub does not provide shell access.</p>
+<p>adb reverse tcp:8081 tcp:8081  //这样</p>
 </blockquote>
-<p>到此表示配置成功了</p>
-<blockquote>
-<p>git init 初始化仓库</p>
-</blockquote>
+<p>至此，环境就算搭建起来了，运行hello world就出来了.   </p>
   
 	</div>
 		<footer class="article-footer clearfix">
 <div class="article-catetags">
 
-
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/github/">github</a>
-  </div>
 
 </div>
 
@@ -177,7 +151,7 @@ Enter passp">
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://yoursite.com/2017/01/17/github第一次在本地配置/" data-title="github第一次在本地配置 | 王亮的博客" data-tsina="null" class="share clearfix">
+	  <div data-url="http://yoursite.com/2017/08/10/React-Native-使用（一）/" data-title="React Native 使用（一） | 王亮的博客" data-tsina="null" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -190,19 +164,11 @@ Enter passp">
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2017/01/17/retrofit2用法及原理/" title="retrofit2用法及原理">
-  <strong>上一篇：</strong><br/>
-  <span>
-  retrofit2用法及原理</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2017/01/17/spring-mvc-mybatis集成/"  title="spring mvc mybatis集成">
+<a href="/2017/03/18/Android-WebView调用不起来键盘的问题/"  title="Android WebView调用不起来键盘的问题">
  <strong>下一篇：</strong><br/> 
- <span>spring mvc mybatis集成
+ <span>Android WebView调用不起来键盘的问题
 </span>
 </a>
 </div>
@@ -217,7 +183,7 @@ Enter passp">
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- 
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#测试安装"><span class="toc-number">1.</span> <span class="toc-text">测试安装</span></a></li></ol>
  
   </div>
 
