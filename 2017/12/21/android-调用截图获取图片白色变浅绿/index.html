@@ -4,23 +4,26 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>git 初始化 | 王亮的博客</title>
+    <title>android 调用截图获取图片白色变浅绿 | 王亮的博客</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="wangliang0209">
     
 
     
-    <meta name="description" content="初次运行 Git 前的配置">
+    <meta name="description" content="这两天做涂鸦的题目，实现方案为从网上加载一张图，然后再图片上蒙一层透明层，在上面涂鸦，涂鸦完成之后，通过截图保存图和涂鸦到一张图上，达到所画即所得的效果。
+但是实现后遇到了这个坑，花了一天时间终于找到原因。首先看我的实现布局文件1234567891011121314151617181920&amp;lt;RelativeLayout android:id=&amp;quot;@+id/doodle_layout&amp;">
 <meta property="og:type" content="article">
-<meta property="og:title" content="git 初始化">
-<meta property="og:url" content="http://yoursite.com/2017/01/17/git-初始化/index.html">
+<meta property="og:title" content="android 调用截图获取图片白色变浅绿">
+<meta property="og:url" content="http://yoursite.com/2017/12/21/android-调用截图获取图片白色变浅绿/index.html">
 <meta property="og:site_name" content="王亮的博客">
-<meta property="og:description" content="初次运行 Git 前的配置">
-<meta property="og:updated_time" content="2017-03-03T03:36:40.000Z">
+<meta property="og:description" content="这两天做涂鸦的题目，实现方案为从网上加载一张图，然后再图片上蒙一层透明层，在上面涂鸦，涂鸦完成之后，通过截图保存图和涂鸦到一张图上，达到所画即所得的效果。
+但是实现后遇到了这个坑，花了一天时间终于找到原因。首先看我的实现布局文件1234567891011121314151617181920&amp;lt;RelativeLayout android:id=&amp;quot;@+id/doodle_layout&amp;">
+<meta property="og:updated_time" content="2017-12-21T07:23:08.814Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="git 初始化">
-<meta name="twitter:description" content="初次运行 Git 前的配置">
+<meta name="twitter:title" content="android 调用截图获取图片白色变浅绿">
+<meta name="twitter:description" content="这两天做涂鸦的题目，实现方案为从网上加载一张图，然后再图片上蒙一层透明层，在上面涂鸦，涂鸦完成之后，通过截图保存图和涂鸦到一张图上，达到所画即所得的效果。
+但是实现后遇到了这个坑，花了一天时间终于找到原因。首先看我的实现布局文件1234567891011121314151617181920&amp;lt;RelativeLayout android:id=&amp;quot;@+id/doodle_layout&amp;">
 
     
     <link rel="alternative" href="/atom.xml" title="王亮的博客" type="application/atom+xml">
@@ -79,14 +82,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2017/01/17/git-初始化/" title="git 初始化" itemprop="url">git 初始化</a>
+      <a href="/2017/12/21/android-调用截图获取图片白色变浅绿/" title="android 调用截图获取图片白色变浅绿" itemprop="url">android 调用截图获取图片白色变浅绿</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="wangliang0209" target="_blank" itemprop="author">wangliang0209</a>
 		
   <p class="article-time">
-    <time datetime="2017-01-17T09:24:17.000Z" itemprop="datePublished"> 发表于 2017-01-17</time>
+    <time datetime="2017-12-21T06:56:40.000Z" itemprop="datePublished"> 发表于 2017-12-21</time>
     
   </p>
 </header>
@@ -95,70 +98,34 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-5"><a class="toc-link" href="#git-打patch"><span class="toc-number">1.</span> <span class="toc-text">git 打patch</span></a></li></ol>
+			
 		
 		</div>
 		
-		<p>初次运行 Git 前的配置</p>
-<a id="more"></a>
-<p>一般在新的系统上，我们都需要先配置下自己的 Git 工作环境。配置工作只需一次，以后升级时还会沿用现在的配置。当然，如果需要，你随时可以用相同的命令修改已有的配置。</p>
-<p>Git 提供了一个叫做 git config 的工具（译注：实际是 git-config 命令，只不过可以通过 git 加一个名字来呼叫此命令。），专门用来配置或读取相应的工作环境变量。而正是由这些环境变量，决定了 Git 在各个环节的具体工作方式和行为。这些变量可以存放在以下三个不同的地方：</p>
-<p>/etc/gitconfig文件：系统中对所有用户都普遍适用的配置。若使用 git config 时用 –system 选项，读写的就是这个文件。</p>
-<p>~/.gitconfig文件：用户目录下的配置文件只适用于该用户。若使用 git config 时用 –global 选项，读写的就是这个文件。</p>
-<p>当前项目的 git 目录中的配置文件（也就是工作目录中的 .git/config 文件）：这里的配置仅仅针对当前项目有效。每一个级别的配置都会覆盖上层的相同配置，所以.git/config 里的配置会覆盖 /etc/gitconfig 中的同名变量。</p>
-<p>在 Windows 系统上，Git 会找寻用户主目录下的 .gitconfig 文件。主目录即 $HOME 变量指定的目录，一般都是 C:\Documents and Settings\$USER。此外，Git 还会尝试找寻 /etc/gitconfig 文件，只不过看当初 Git 装在什么目录，就以此作为根目录来定位。</p>
-<p>用户信息</p>
-<p>第一个要配置的是你个人的用户名称和电子邮件地址。这两条配置很重要，每次 Git 提交时都会引用这两条信息，说明是谁提交了更新，所以会随更新内容一起被永久纳入历史记录：</p>
-<p>$ git config –global user.name “John Doe”</p>
-<p>$ git config –global user.email johndoe@example.com</p>
-<p>如果用了 –global 选项，那么更改的配置文件就是位于你用户主目录下的那个，以后你所有的项目都会默认使用这里配置的用户信息。如果要在某个特定的项目中使用其他名字或者电邮，只要去掉 –global 选项重新配置即可，新的设定保存在当前项目的 .git/config文件里。</p>
-<p>文本编辑器</p>
-<p>接下来要设置的是默认使用的文本编辑器。Git 需要你输入一些额外消息的时候，会自动调用一个外部文本编辑器给你用。默认会使用操作系统指定的默认编辑器，一般可能会是Vi 或者 Vim。如果你有其他偏好，比如 Emacs 的话，可以重新设置：</p>
-<p>$ git config –global core.editor emacs</p>
-<p>差异分析工具</p>
-<p>还有一个比较常用的是，在解决合并冲突时使用哪种差异分析工具。比如要改用 vimdiff的话：</p>
-<p>$ git config –global merge.tool vimdiff</p>
-<p>Git 可以理解 kdiff3，tkdiff，meld，xxdiff，emerge，vimdiff，gvimdiff，ecmerge，和 opendiff 等合并工具的输出信息。</p>
-<p>查看配置信息</p>
-<p>要检查已有的配置信息，可以使用 git config –list 命令：</p>
-<p>$ git config –list</p>
-<p>user.name=Scott Chacon</p>
-<p>user.email=schacon@gmail.com</p>
-<p>color.status=auto</p>
-<p>color.branch=auto</p>
-<p>color.interactive=auto</p>
-<p>color.diff=auto</p>
-<p>…</p>
-<p>有时候会看到重复的变量名，那就说明它们来自不同的配置文件（比如 /etc/gitconfig和 ~/.gitconfig），不过最终 Git 实际采用的是最后一个。</p>
-<p>也可以直接查阅某个环境变量的设定，只要把特定的名字跟在后面即可，像这样：</p>
-<p>$ git config user.name</p>
-<p>Scott Chacon</p>
-<p>获取帮助</p>
-<p>想了解 Git 的各式工具该怎么用，可以阅读它们的使用帮助，方法有三：</p>
-<p>$ git help</p>
-<p>$ git –help</p>
-<p>$ man git-</p>
-<p>比如，要学习 config 命令可以怎么用，运行：</p>
-<p>$ git help config</p>
-<ul>
-<li>git reset –hard HEAD^<br>强制放弃本次修改的代码</li>
-<li>git stash save 名称<br>git stash apply stash@{0}</li>
-</ul>
-<h5 id="git-打patch"><a href="#git-打patch" class="headerlink" title="git 打patch"></a>git 打patch</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git commit -s</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git format-patch HEAD^</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cat 0001-wangliang-modify-gradle-2.2-error.patch</div></pre></td></tr></table></figure>
-<p>拿到patch后<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git am -3 0001-wangliang-modify-gradle-2.2-error.patch</div></pre></td></tr></table></figure></p>
-<p>即可获取这个版本的所有改变代码  </p>
+		<p>这两天做涂鸦的题目，实现方案为从网上加载一张图，然后再图片上蒙一层透明层，在上面涂鸦，涂鸦完成之后，通过截图保存图和涂鸦到一张图上，达到所画即所得的效果。</p>
+<p>但是实现后遇到了这个坑，花了一天时间终于找到原因。<br>首先看我的实现<br>布局文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">&lt;RelativeLayout android:id=&quot;@+id/doodle_layout&quot;  </div><div class="line">           android:layout_width=&quot;match_parent&quot;  </div><div class="line">           android:layout_height=&quot;wrap_content&quot;</div><div class="line">           android:layout_centerVertical=&quot;true&quot;&gt;</div><div class="line">           &lt;ImageView android:id=&quot;@+id/write_iv_img&quot;</div><div class="line">               android:layout_width=&quot;match_parent&quot;</div><div class="line">               android:layout_height=&quot;wrap_content&quot;</div><div class="line">               android:background=&quot;#FFFFFF&quot;</div><div class="line">               android:adjustViewBounds=&quot;true&quot;  //达到图片match_parent效果</div><div class="line">               /&gt;</div><div class="line">           &lt;com.wl.base.doodle.DoodleImageView</div><div class="line">               android:id=&quot;@+id/doodle_paint&quot;</div><div class="line">               android:layout_width=&quot;match_parent&quot;</div><div class="line">               android:layout_height=&quot;wrap_content&quot;</div><div class="line">               android:layout_alignLeft=&quot;@id/write_iv_img&quot;</div><div class="line">               android:layout_alignRight=&quot;@id/write_iv_img&quot;</div><div class="line">               android:layout_alignTop=&quot;@id/write_iv_img&quot;</div><div class="line">               android:layout_alignBottom=&quot;@id/write_iv_img&quot;&gt;</div><div class="line">           &lt;/com.zuoyeben123.base.doodle.DoodleImageView&gt;</div><div class="line">       &lt;/RelativeLayout&gt;</div></pre></td></tr></table></figure></p>
+<p>代码加载</p>
+<blockquote>
+<p>ImageLoader.getInstance().displayImage(mUrl, mIvImg);</p>
+</blockquote>
+<p>截图代码</p>
+<blockquote>
+<p>Bitmap bm = Bitmap.createBitmap(mDoodleContainer.getWidth(), mDoodleContainer.getHeight(), Bitmap.Config.ARGB_8888);<br>        //使用Canvas，调用自定义view控件的onDraw方法，绘制图片<br>        Canvas canvas = new Canvas(bm);<br>        mDoodleContainer.draw(canvas);</p>
+</blockquote>
+<p>其实和调用getDrawingCache效果一致。</p>
+<p>按照上面的代码出来的效果就是白色的图片截出图来会发绿。</p>
+<p>###问题解决</p>
+<p>首先出现这个问题的原因是我用了ImageLoader  并且为了节省内存，display 我用的是<code>RGB_565</code>，问题就在这个RGB_565上面。</p>
+<p>下面是解决办法：</p>
+<blockquote>
+<p>DisplayImageOptions options = new DisplayImageOptions.Builder()<br>            .cacheInMemory(true)<br>            .cacheOnDisk(true)<br>            .imageScaleType(ImageScaleType.IN_SAMPLE_INT)//设置图片以如何的编码方式显示<br>            .bitmapConfig(<code>Bitmap.Config.ARGB_8888</code>)<br>            .build();<br>ImageLoader.getInstance().displayImage(mUrl, mIvImg, options);</p>
+</blockquote>
+<p>这样修改后，问题就解决了。出坑~~~</p>
   
 	</div>
 		<footer class="article-footer clearfix">
 <div class="article-catetags">
 
-
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/git/">git</a>
-  </div>
 
 </div>
 
@@ -166,7 +133,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://yoursite.com/2017/01/17/git-初始化/" data-title="git 初始化 | 王亮的博客" data-tsina="null" class="share clearfix">
+	  <div data-url="http://yoursite.com/2017/12/21/android-调用截图获取图片白色变浅绿/" data-title="android 调用截图获取图片白色变浅绿 | 王亮的博客" data-tsina="null" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -179,19 +146,11 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2017/01/18/Python-开发环境（Eclipse-pyDev）/" title="Python 开发环境（Eclipse pyDev）">
-  <strong>上一篇：</strong><br/>
-  <span>
-  Python 开发环境（Eclipse pyDev）</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2017/01/17/动态代理原理/"  title="动态代理原理">
+<a href="/2017/08/10/React-Native-使用（一）/"  title="React Native 使用（一）">
  <strong>下一篇：</strong><br/> 
- <span>动态代理原理
+ <span>React Native 使用（一）
 </span>
 </a>
 </div>
@@ -206,7 +165,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- <ol class="toc"><li class="toc-item toc-level-5"><a class="toc-link" href="#git-打patch"><span class="toc-number">1.</span> <span class="toc-text">git 打patch</span></a></li></ol>
+ 
  
   </div>
 
